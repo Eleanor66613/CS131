@@ -1,0 +1,74 @@
+l1@l2: O(l1)
+e::l : O(1)
+
+match l with
+[head;tail] -> [1;2;3]
+[head::tail] -> [[......]]
+head,tail ->
+head;tail  -> tail  (head and tail has to be the same type)
+
+type point = float * float
+type shape = Rectangle of point * point
+			| Circle of point * float
+
+let area s =
+match s with
+	Circle(Point(x,y), r)
+	 	-> pi*.r*.r
+	Rectangle(point(x1,y1), point(x2,y2))
+		-> abs(x2-x1) * abs(y2-y1
+
+let area s =
+match s with
+	Circle(_, r)
+	 	-> 3.14*.r*.r
+	|Rectangle((x1,y1), (x2,y2))
+		-> (x2 -.x1) *. (y2 -.y1)
+
+
+n(f,zero) = f(n)(Zero)
+n(f, m(f,z)) = f(n)(f(m)(z))=f(n+m)(z)
+n(f,z), m(f,z) (n+m = h) = h(f,z)
+
+n(f,z) = f(n)(z) 
+n(f,f(z)) = f(n+1)(z)
+
+type peano = Zero | Succ of peano
+3 = Succ(Succ(Succ(Zero))))
+
+let rec ptoI p =
+	match p with Zero -> 0
+		|Succ(q) -> 1+ ptoI(q)
+
+let rec itoP i =
+	match i with 
+		0 -> Zero
+		|_->Succ(itoP (i-1))
+
+（has to put 0 at first)
+
+let add p1 p2 =
+	match p1 with
+		Zero -> ptoI p2
+		|Succ(p) -> add p Succ(p2) ??
+
+let multiple p1 p2 =
+	match p1 with
+		Zero -> 0
+		|Succ (p) -> add p2 (multiple p p2)
+
+let fib n =
+	match n with
+		0 -> 0
+	 	1 -> 1
+	 	|_->fib(n-1) + fib (n-2)
+
+(*
+to load file into ocaml:
+#use "my.ml"
+*)
+
+utop
+
+
+
